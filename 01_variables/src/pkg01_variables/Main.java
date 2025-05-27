@@ -40,6 +40,63 @@ public class Main {
         //declarar una variable e inicializala al mismo tiempo
         int b = 90;
         System.out.println(b);
+        
+        //declarar multiples variables del mismo tipo
+        int num1, num2, num3;
+        //declarar e inicializar multiples variables del mismo tipo
+        int cifra1 = 7, cifra2 = 100, cifra3 = -89;
+        double v1 = 5.6, v2 = 8.23;
+        
+        //en JAVA a las variables float con decimales debemos
+        //ponerles una f al final
+        float f1 = 6.7f;
+        
+        //tipo de dato long
+        //es un numero entero de alta precision, su capacidad es de 64 bit (8 bytes)
+        //a diferencia del entero (int) que es de 32 bit (4 bytes)
+        //el numero 1234123412345 no puede guardarse como int:
+        //int valor10 = 1234123412345;
+        //pero se puede guardar en un long: (debe colocar L al final del numero)
+        long valor10 = 1234123412345L;
+        System.out.println("valor10 es igual a "+valor10);
+        
+        //tipo de dato char: almacena un solo caracter.
+        //una variable char mide: 1 byte (8 bit)
+        //se usa comilla simple o sea el caracter 39
+        char c1 = 'g';
+        char c2 = '/';
+        //si usa caracter slash inverso debe poner doble; pero solo es un char:
+        char c3 = '\\';
+        System.out.println("El valor de c1 es "+c1);
+        System.out.println("El valor de c2 es "+c2);
+        System.out.println("El valor de c3 es "+c3);
+        
+        //tipo de dato boolean: guarda true o false (1 bit)
+        boolean respuesta = true;
+        System.out.println("El valor de respuesta es "+respuesta);
+        respuesta = false;
+        System.out.println("El valor de respuesta es "+respuesta);
+        //una expresion de comparacion tambien devuelve un valor booleano:
+        boolean evaluacion1;
+        int e1 = 3, e2 = 9;
+        evaluacion1 = e1 > e2;
+        System.out.println("El valor de evaluacion1 es "+evaluacion1);
+        
+        /*Ley de precedencia de operadores
+        Las expresiones deben evaluarse de izquierda a derecha dando prioridad
+        a las operaciones de acuerdo a la tabla siguiente:
+        a) Parentesis ()
+        b) exponentes Math.pow
+        c) multiplicaciones y divisiones * /
+        d) sumas y restas + -
+        e) operadores logicos NOT  !
+        f) operadores logicos AND  &&
+        g) operadores logicos OR   ||  (caracter 124)
+        */
+        double d1 = 5, d2 = 9, d3 = 2, d4 = 10;
+        System.out.println( d1+d2/d3 );
+        System.out.println( (d1+d2)/d3 );
+        System.out.println( (d1-d2)/(d3+d4)*d1 );
     }
     
 }
