@@ -97,6 +97,84 @@ public class Main {
         System.out.println( d1+d2/d3 );
         System.out.println( (d1+d2)/d3 );
         System.out.println( (d1-d2)/(d3+d4)*d1 );
+        
+        //Concatenacion: unir dos elementos y transformarlos en un solo String
+        //el caracter para concatenar es el signo de suma +
+        char char1 = 'A', char2 = 'B';
+        System.out.println( char1+char2 );
+        //porque no imprimio AB sino en su lugar 131? porque el operador + si se aplica
+        //a elementos char este suma el valor numerico de cada char. A vale 65, B vale 66
+        //en la tabla ASCII de caracteres (American Standard Code for Information Interchange)
+        //Si antepone un String y luego suma dos elementos char entonces se CONCATENAN.
+        System.out.println( ""+char1+char2 );
+        //esto se debe a que el operador de suma (+) en lenguajes basados en C esta sobrecargado
+        //o sea que se comporta de acuerdo a sus parametros de entrada.
+        //String+numero = String
+        //numero+String = String
+        //numero+numero = numero
+        System.out.println("La suma de "+d1+" mas "+d2+" es "+d1+d2);
+        //lo anterior arroja un resultado erroneo porque se sigue la regla de
+        //concatenar String+numero, como se resuelve?
+        System.out.println("La suma de "+d1+" mas "+d2+" es "+(d1+d2) );
+        //importante: si hay operaciones de resta, multiplicacion, division, modulo, etc.
+        //debe ponerlas entre parentesis, sino no va a compilar el programa en JAVA
+        System.out.println("La resta de "+d1+" menos "+d2+" es "+(d1-d2));
+        
+        //funciones de matematicas en JAVA:
+        //para ello existe una clase llamada Math y se usa asi:
+        //pow: elevar un numero base a determinado exponente.
+        double valor1 = 5;
+        System.out.println( valor1+" al cuadrado es "+Math.pow(valor1, 2) );
+        System.out.println( valor1+" a la 5 potencia es "+Math.pow(valor1, 5) );
+        //se puede usar pow para obtener raices:
+        double valor2 = 27;
+        System.out.println("La raiz cubica de "+valor2+" es "+Math.pow(valor2, 1.0/3.0));
+        //ojo note la importancia de colocar 1.0/3.0 en lugar de 1/3, porque?
+        // 1/3 es considerado en JAVA una division de enteros por lo tanto el resultado seria 0:
+        System.out.println("La division de 1/3 es: "+(1/3));
+        // 1.0/3.0 es considerado por JAVA como division de doubles por lo tanto es 0.3333333
+        System.out.println("La division de 1.0/3.0 es: "+(1.0/3.0));
+        
+        //valores constantes importantes de la clase Math:
+        System.out.println("El valor de PI: "+Math.PI);
+        System.out.println("El valor del exponencial es: "+Math.E);
+        
+        //calculo de logaritmos:
+        double valor3 = 2;
+        System.out.println("El logaritmo de "+valor3+" es "+Math.log(valor3));
+        System.out.println("El logaritmo base 10 de "+valor3+" es "+Math.log10(valor3));
+        System.out.println("El logaritmo natural de "+valor3+" es "+Math.log1p(valor3));
+        
+        //sqrt = Square root o raiz cuadrada:
+        System.out.println("La raiz cuadrada de "+valor3+" es "+Math.sqrt(valor3));
+        double valor4 = 25;
+        System.out.println("La raiz cuadrada de "+valor4+" es "+Math.sqrt(valor4));
+        
+        //round: redondear al proximo entero siempre y cuando se supere la mitad
+        double valor5 = 3.32, valor6 = 7.5, valor7 = 4.00005, valor8 = 6.0, valor9 = 2.78;
+        System.out.println("round de "+valor5+" es "+Math.round(valor5));
+        System.out.println("round de "+valor6+" es "+Math.round(valor6));
+        System.out.println("round de "+valor7+" es "+Math.round(valor7));
+        System.out.println("round de "+valor8+" es "+Math.round(valor8));
+        System.out.println("round de "+valor9+" es "+Math.round(valor9));
+        
+        //ceil: devuelve el entero superior del valor enviado
+        System.out.println("ceil de "+valor5+" es "+Math.ceil(valor5));
+        System.out.println("ceil de "+valor6+" es "+Math.ceil(valor6));
+        System.out.println("ceil de "+valor7+" es "+Math.ceil(valor7));
+        System.out.println("ceil de "+valor8+" es "+Math.ceil(valor8));
+        System.out.println("ceil de "+valor9+" es "+Math.ceil(valor9));
+        
+        //floor: devuelve el entero del valor enviado
+        System.out.println("floor de "+valor5+" es "+Math.floor(valor5));
+        System.out.println("floor de "+valor6+" es "+Math.floor(valor6));
+        System.out.println("floor de "+valor7+" es "+Math.floor(valor7));
+        System.out.println("floor de "+valor8+" es "+Math.floor(valor8));
+        System.out.println("floor de "+valor9+" es "+Math.floor(valor9));
+        
+        //ejemplo:
+        System.out.println("La parte decimal de "+valor5+" es "+( valor5-Math.floor(valor5) ) );
+        
     }
     
 }
