@@ -59,6 +59,30 @@ public class Main {
         System.out.println("El primer elemento de arr1 es: "+arr1[0]);
         System.out.println("El ultimo elemento de arr1 es: "+arr1[5]);
         System.out.println("El ultimo elemento de arr1 es: "+arr1[ arr1.length-1 ]);
+        
+        //3) declarar e inicializar el arreglo prellenado con datos
+        int arr2[] = { 8, -5, 0, 111, 45, 100, 4, 333, 2 };
+        System.out.println("Contenido de arr2: **************");
+        for( int i = 0; i < arr2.length; i++ ){
+            System.out.print("Posicion: "+i);
+            System.out.println("\tValor: "+arr2[i]);
+        }
+        
+        //el arreglo sin memoria que hicimos en el inciso 1) lo voy a apuntar
+        //hacia arr2
+        arreglo = arr2;
+        System.out.println("Contenido de arreglo: **************");
+        for( int i = 0; i < arreglo.length; i++ ){
+            System.out.print("Posicion: "+i);
+            System.out.println("\tValor: "+arreglo[i]);
+        }
+        
+        System.out.println("Direccion de memoria de arr1: "+arr1);
+        System.out.println("Direccion de memoria de arr2: "+arr2);
+        System.out.println("Direccion de memoria de arreglo: "+arreglo);
+        //Note que arr2 y arreglo tienen la misma direccion de memoria porque
+        //en la linea 73 apuntamos arreglo hacia arr2 a esto se le conoce
+        //como pase por referencia y es muy usado en programacion.
     }
     
 }
