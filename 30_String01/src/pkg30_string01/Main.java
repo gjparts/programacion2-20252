@@ -118,5 +118,25 @@ public class Main {
         mascota += 'Z'; //esto si se puede, es como decir: mascota = mascota + 'Z'
         mascota += 'W'+'X'+'R'; //esto no funciona bien
         System.out.println("mascota (original): "+mascota);
+        
+        String persona = "Gerardo Josue Portillo";
+        /*Ejercicio: genere una nueva variable String que sea copia de
+        la variable persona; pero reemplazando cada espacio en blanco con un guion
+        bajo en la copia, sin utilizar el metodo replace. Imprima la nueva variable.*/
+        String copia = "";
+        for( int i = 0; i < persona.length(); i++ ){
+            if( persona.charAt(i) == ' ' )
+                copia = copia + '_';
+            else
+                copia = copia + persona.charAt(i);
+        }
+        System.out.println(copia);
+        
+        //ejemplo anterior utilizando operador ternario
+        copia = ""; //copia vacia
+        for( int i = 0; i < persona.length(); i++ )
+            copia = copia + ( persona.charAt(i) == ' ' ? '_' : persona.charAt(i) );
+        
+        System.out.println(copia);
     }    
 }
