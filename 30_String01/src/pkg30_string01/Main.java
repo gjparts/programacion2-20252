@@ -138,5 +138,24 @@ public class Main {
             copia = copia + ( persona.charAt(i) == ' ' ? '_' : persona.charAt(i) );
         
         System.out.println(copia);
+        
+        /*Operador Ternario
+        Retorna el resultado de evaluar una o varias condiciones, dicho resultado
+        puede tener uno de dos posibles resultados:
+        a) el resultado si se cumplen las condiciones
+        b) el resultado si NO se cumplen las condiciones
+        -> RECUERDE que cada uno de los posibles resultados debe de ser del mismo tipo
+           de dato.*/
+        float facturado = 1000;
+        boolean pagaImpuesto = true;
+        //su paga impuesto se imprime lo facturado mas el 15% sino pues
+        //solo se imprime lo facturado
+        System.out.println("Valor a pagar: "+( pagaImpuesto == true ? facturado*1.15f : facturado ));
+        
+        //tambien se puede usar para asignar valores
+        float pagar = ( pagaImpuesto == true ? facturado*1.15f : facturado );
+        System.out.println("Total a pagar: "+pagar);
+        
+        
     }    
 }
