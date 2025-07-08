@@ -34,6 +34,17 @@ public class Main {
         System.out.print("digite fruta a buscar: ");
         String buscar = s.nextLine();
         
+        //recorrer el arreglo y comparar cada item con la fruta buscada
+        boolean encontrado = false; //variable bandera que indica si se encontró
+        for( int i = 0; i < frutas.length; i++ ){
+            if( frutas[i].toUpperCase().equals(buscar.toUpperCase()) == true ){
+                System.out.println("Fruta encontrada en la posicion: "+i);
+                encontrado = true; //cambia la variable bandera
+                break; //terminamos con el recorrido a traves de for porque solo queremos la primer coincidencia
+            }
+        }
+        //si llego hasta aqui y encontrado es false quiere decir que no se encontró la fruta
+        if( encontrado == false ) System.out.println("Fruta no encontrada.");
     }
     
 }
