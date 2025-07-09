@@ -1,4 +1,7 @@
 package pkg36_string07;
+
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         /*Metodo replace
@@ -35,5 +38,10 @@ public class Main {
         todas las letras A por 4, las letras E por 3, las letras I por 1.
         Ignorando mayusculas y minusculas además altere el String original.
         -> se le permite usar replace o replaceAll.*/
+        Scanner s = new Scanner(System.in);
+        System.out.print("Digite un String: ");
+        String str4 = s.nextLine();
+        str4 = str4.replace(" ", "_").replaceAll("(?i)a", "4").replaceAll("(?i)e", "3").replaceAll("(?i)i", "1");
+        System.out.println("Resultado: "+str4);
     }    
 }
