@@ -1,4 +1,7 @@
 package pkg38_string09;
+
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         /*Metodo indexOf (find)
@@ -33,6 +36,18 @@ public class Main {
         Debe ignorar mayusculas/minusculas y no debe afectar al string original. ejem:
         String a buscar: El
         Veces que se encontro: 3*/
-        
+        Scanner s = new Scanner(System.in);
+        System.out.print("String a buscar: ");
+        String buscar = s.nextLine();
+        int ultimaPosicion = 0;
+        int contador = 0;
+        while( ultimaPosicion >= 0 ){
+            ultimaPosicion = x.toUpperCase().indexOf(buscar.toUpperCase(), ultimaPosicion);
+            if( ultimaPosicion >= 0 ){
+                contador++;
+                ultimaPosicion++;
+            }
+        }
+        System.out.println("Se ha encontrado "+contador+" veces.");
     }
 }
