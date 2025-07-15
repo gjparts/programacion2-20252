@@ -4,6 +4,33 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+         /*Metodo substring
+        Devuelve un String que se encuentra dentro de otro String,
+        sin alterar al String original.
+        En JAVA existe dos formas de usarlo:
+        1) substring(posicion_inicial)
+            devuelve un String desde la posicion inicial llegando
+            hasta el final del string origen.
+        2) substring(posicion_inicial, posicion_final)
+            devuelve un String desde la posicion inicial llegando
+            hasta la posicion final.*/
+        String str = "Erase una vez en un pais muy muy lejano.";
+        System.out.println(str);
+        //substring solo con posicion inicial:
+        System.out.println( str.substring(7) );
+        System.out.println( str.substring(15) );
+        //si quiere referirse a una posicion inexistente dara un error IndexOutOfBounds:
+        //System.out.println( str.substring(1000) );
+        //tamien puede almacenar el resultado de substring en una variable
+        String fragmento = str.substring(32);
+        System.out.println("fragmento: "+fragmento);
+        
+        //substring con posicion inicial y final:
+        System.out.println( str.substring(0, 11) );
+        System.out.println( str.substring(8, 17) );
+        //recuerde que en JAVA la posicion inicial debe de ser menor a la final
+        //System.out.println( str.substring(11, 5) );
+
         /*Leer un numero de cedula de Honduras (DNI), el programa
         unicamente debe validar que este numero tenga exactamente 13 caracteres.
         * el programa antes de validar los 13 caraceres
