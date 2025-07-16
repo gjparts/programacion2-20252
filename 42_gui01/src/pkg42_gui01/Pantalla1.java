@@ -8,6 +8,7 @@ package pkg42_gui01;
  *
  * @author Gerardo
  */
+import javax.swing.JOptionPane; //clase para mostrar alertas en pantalla
 public class Pantalla1 extends javax.swing.JFrame {
 
     /**
@@ -26,21 +27,79 @@ public class Pantalla1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        botonx = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gerardo - 20012002049");
+        setBackground(new java.awt.Color(204, 255, 204));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
+
+        botonx.setBackground(new java.awt.Color(255, 255, 102));
+        botonx.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        botonx.setForeground(new java.awt.Color(51, 51, 255));
+        botonx.setText("Click aqui");
+        botonx.setToolTipText("UNAH 2025");
+        botonx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonxActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setBackground(new java.awt.Color(153, 204, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("etiqueta");
+        jLabel1.setToolTipText("texto de ayuda");
+        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 0), 4, true));
+        jLabel1.setOpaque(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(botonx, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(botonx, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        //windowOpened es el evento que sucede cuando se dibuja
+        //el JFrame actual en la pantalla
+        //forzar la aplicacion del color de fondo seleccionado
+        this.getContentPane().setBackground(this.getBackground());
+        //mostrar mensaje de bienvenida
+        JOptionPane.showMessageDialog(this, "Bienvenidos");
+    }//GEN-LAST:event_formWindowOpened
+
+    private void botonxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonxActionPerformed
+        JOptionPane.showMessageDialog(this, "Ing. en Sistemas");
+    }//GEN-LAST:event_botonxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +137,7 @@ public class Pantalla1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonx;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
