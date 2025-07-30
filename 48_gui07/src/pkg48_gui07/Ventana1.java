@@ -4,6 +4,7 @@
  */
 package pkg48_gui07;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -35,6 +36,9 @@ public class Ventana1 extends javax.swing.JFrame {
         combo1 = new javax.swing.JComboBox<>();
         combo2 = new javax.swing.JComboBox<>();
         combo3 = new javax.swing.JComboBox<>();
+        etiqueta2 = new javax.swing.JLabel();
+        etiqueta3 = new javax.swing.JLabel();
+        boton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("20012002049 :: Gerardo");
@@ -67,8 +71,27 @@ public class Ventana1 extends javax.swing.JFrame {
         combo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sistemas", "Derecho", "Informatica", "Industrial", "Civil" }));
 
         combo2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        combo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo2ActionPerformed(evt);
+            }
+        });
 
         combo3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+
+        etiqueta2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        etiqueta2.setText("jLabel1");
+
+        etiqueta3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        etiqueta3.setText("jLabel1");
+
+        boton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        boton2.setText("Pedir Sandia");
+        boton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,9 +105,14 @@ public class Ventana1 extends javax.swing.JFrame {
                             .addComponent(check1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(boton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addComponent(etiqueta1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(etiqueta1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(etiqueta2, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(etiqueta3, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(combo1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(combo2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(combo2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(boton2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(combo3, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
@@ -100,10 +128,16 @@ public class Ventana1 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(combo1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(combo2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(boton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(combo2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(combo3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(etiqueta2)
+                .addGap(18, 18, 18)
+                .addComponent(etiqueta3)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
@@ -134,6 +168,8 @@ public class Ventana1 extends javax.swing.JFrame {
         modelo.addElement("Melocoton");
         //asignar el modelo a combo2
         combo2.setModel(modelo);
+        //simular que se ha seleccionado una fruta en combo2:
+        combo2ActionPerformed(null);
         
         //llenar combo3 con numeros del 2000 al 3000
         DefaultComboBoxModel modeloNumeros = new DefaultComboBoxModel();
@@ -147,6 +183,25 @@ public class Ventana1 extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "El valor de check1 es "+check1.isSelected());
         //isSelected() devuelve un valor boolean
     }//GEN-LAST:event_boton1ActionPerformed
+
+    private void combo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo2ActionPerformed
+        //evento que sucede al cambiar el valor en el jComboBox
+        //getSelectedIndex devuelve int de 0 a N-1
+        etiqueta2.setText("index: "+combo2.getSelectedIndex());
+        //getSelectedItem devuelve un Object compatible con String
+        etiqueta3.setText("value: "+combo2.getSelectedItem());
+        
+        //si selecciona Sandia que coloree verde el fondo
+        //sino que deje el color original de fondo
+        if( combo2.getSelectedItem().equals("Sandia") == true )
+            this.getContentPane().setBackground(Color.green);
+        else
+            this.getContentPane().setBackground(null); //color de fabrica
+    }//GEN-LAST:event_combo2ActionPerformed
+
+    private void boton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton2ActionPerformed
+        combo2.setSelectedItem("Sandia");
+    }//GEN-LAST:event_boton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,10 +240,13 @@ public class Ventana1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton1;
+    private javax.swing.JButton boton2;
     private javax.swing.JCheckBox check1;
     private javax.swing.JComboBox<String> combo1;
     private javax.swing.JComboBox<String> combo2;
     private javax.swing.JComboBox<String> combo3;
     private javax.swing.JLabel etiqueta1;
+    private javax.swing.JLabel etiqueta2;
+    private javax.swing.JLabel etiqueta3;
     // End of variables declaration//GEN-END:variables
 }
