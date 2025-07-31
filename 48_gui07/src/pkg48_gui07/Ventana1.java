@@ -13,6 +13,13 @@ import javax.swing.JOptionPane;
  */
 import javax.swing.DefaultComboBoxModel; //modelo para llenar combobox
 public class Ventana1 extends javax.swing.JFrame {
+    private void funcionalgo(){
+        return; //termina con la funcion
+        //cualquier codigo despues de return es ignorado
+    }
+    private int sumar(int a, int b){
+        return a+b;
+    }
 
     /**
      * Creates new form Ventana1
