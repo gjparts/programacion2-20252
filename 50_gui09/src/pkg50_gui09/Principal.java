@@ -9,6 +9,7 @@ package pkg50_gui09;
  * @author Gerardo
  */
 import javax.swing.DefaultListModel; //nuevo
+import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 public class Principal extends javax.swing.JFrame {
     //declaracion de variables globales (aquellas que esta disponibles
@@ -37,6 +38,10 @@ public class Principal extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         lista1 = new javax.swing.JList<>();
+        jLabel1 = new javax.swing.JLabel();
+        caja1 = new javax.swing.JTextField();
+        botonAgregar1 = new javax.swing.JButton();
+        botonAgregar2 = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -57,21 +62,60 @@ public class Principal extends javax.swing.JFrame {
         lista1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(lista1);
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setText("Nuevo Color:");
+
+        caja1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        botonAgregar1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        botonAgregar1.setText("Agregar (metodo 1)");
+        botonAgregar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregar1ActionPerformed(evt);
+            }
+        });
+
+        botonAgregar2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        botonAgregar2.setText("Agregar (metodo 2)");
+        botonAgregar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregar2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(caja1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonAgregar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonAgregar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(caja1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonAgregar1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(botonAgregar2)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         pack();
@@ -103,6 +147,31 @@ public class Principal extends javax.swing.JFrame {
         //apuntar el modelo1 hacia la lista
         lista1.setModel(modelo1);
     }//GEN-LAST:event_formWindowOpened
+
+    private void botonAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregar1ActionPerformed
+        //Agregar a lista1 lo que se escriba en caja1
+        //impedir agregar texto en blanco
+        if( caja1.getText().trim().length() > 0 ){
+            modelo1.addElement( caja1.getText() );
+            //limpiar la caja de texto
+            caja1.setText("");
+        }
+        else
+            JOptionPane.showMessageDialog(this, "Debe escribir algo en la caja");
+    }//GEN-LAST:event_botonAgregar1ActionPerformed
+
+    private void botonAgregar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregar2ActionPerformed
+        //Agregar a lista1 usando un InputDialog
+        String str = JOptionPane.showInputDialog(this,"Digite el nombre del color");
+        //si hizo click en Cancelar o en cerrar (X) str toma el valor null
+        if( str != null ){
+            if( str.trim().length() > 0 ){
+                modelo1.addElement(str);
+            }
+            else
+                JOptionPane.showMessageDialog(this, "Debe escribir el color");
+        }
+    }//GEN-LAST:event_botonAgregar2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,7 +209,11 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonAgregar1;
+    private javax.swing.JButton botonAgregar2;
+    private javax.swing.JTextField caja1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> lista1;
     // End of variables declaration//GEN-END:variables
