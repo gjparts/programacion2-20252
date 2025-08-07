@@ -42,6 +42,9 @@ public class Principal extends javax.swing.JFrame {
         caja1 = new javax.swing.JTextField();
         botonAgregar1 = new javax.swing.JButton();
         botonAgregar2 = new javax.swing.JButton();
+        botonEditar = new javax.swing.JButton();
+        botonBorrar = new javax.swing.JButton();
+        botonLimpiar = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -83,6 +86,30 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        botonEditar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        botonEditar.setText("Editar");
+        botonEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEditarActionPerformed(evt);
+            }
+        });
+
+        botonBorrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        botonBorrar.setText("Borrar");
+        botonBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBorrarActionPerformed(evt);
+            }
+        });
+
+        botonLimpiar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        botonLimpiar.setText("Limpiar");
+        botonLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonLimpiarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,7 +125,10 @@ public class Principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonAgregar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botonAgregar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(botonAgregar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -114,6 +144,12 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(botonAgregar2)
+                        .addGap(37, 37, 37)
+                        .addComponent(botonEditar)
+                        .addGap(37, 37, 37)
+                        .addComponent(botonBorrar)
+                        .addGap(54, 54, 54)
+                        .addComponent(botonLimpiar)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -173,6 +209,51 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botonAgregar2ActionPerformed
 
+    private void botonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarActionPerformed
+        //verificar si se ha seleccionado un item
+        if( lista1.getSelectedIndex() == -1 )
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un item");
+        else{
+            //hay item seleccionado
+            //recuperar el texto del item seleccionado
+            String str = lista1.getSelectedValue();
+            //mostrar un cuadro para editar
+            String nuevo = JOptionPane.showInputDialog(this,"Digite el nuevo valor",str);
+            if( nuevo != null ){
+                if( nuevo.trim().length() > 0 ){
+                    //reemplazar el valor en el modelo
+                    modelo1.setElementAt(nuevo, lista1.getSelectedIndex());
+                }
+                else
+                    JOptionPane.showMessageDialog(this, "No se acepta texto en blanco.");
+            }
+        }
+    }//GEN-LAST:event_botonEditarActionPerformed
+
+    private void botonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarActionPerformed
+        //verificar si se ha seleccionado un item
+        if( lista1.getSelectedIndex() == -1 )
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un item");
+        else{
+            //preguntar al usuario si desea borrar
+            int boton = JOptionPane.showConfirmDialog(this, "Desea borrar el item?");
+            //si hace click en el boton 0 es porque dijo que si (Yes)
+            if( boton == 0 ){
+                //eliminar del modelo el item en la posicion seleccionado en la lista
+                modelo1.removeElementAt(lista1.getSelectedIndex());
+            }
+        }
+    }//GEN-LAST:event_botonBorrarActionPerformed
+
+    private void botonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiarActionPerformed
+        //preguntar al usuario si desea borrar
+        int boton = JOptionPane.showConfirmDialog(this, "Desea limpiar toda la lista?");
+        //si hace click en el boton 0 es porque dijo que si (Yes)
+        if( boton == 0 ){
+            modelo1.removeAllElements();
+        }
+    }//GEN-LAST:event_botonLimpiarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -211,6 +292,9 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAgregar1;
     private javax.swing.JButton botonAgregar2;
+    private javax.swing.JButton botonBorrar;
+    private javax.swing.JButton botonEditar;
+    private javax.swing.JButton botonLimpiar;
     private javax.swing.JTextField caja1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
